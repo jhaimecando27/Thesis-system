@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Data Selection{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+
+
+{% block main %}
+
+<div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    <div class="p-5 body-secondary rounded-4">
+        <h1 class="display-6">STEP2: Data Selection</h1>
+        {% if form.options.errors %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ form.options.errors[0] }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        <form class="d-flex flex-column" method="POST" action="{{ url_for('data_selection') }}">
+            {{ form.csrf_token }}
+            <p>Select ObjectId:</p>
+            <ul class="list-group overflow-scroll mb-3" style="height: 40vh;">
+                {% for subfield in form.options %}
+                    <li class="list-group-item">
+                        {{ subfield(class="form-check-input me-1") }}
+                        {{ subfield.label(class="form-check-label") }}
+                    </li>
+                {% endfor %}
+            </ul>
+
+            {{ form.submit(class="btn btn-primary align-self-center") }}
+        </form>
+    </div>
+</div>
+{% endblock %}
+

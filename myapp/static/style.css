@@ -1,0 +1,35 @@
+:root {
+    --bg-primary: #011627;
+    --bg-secondary: #1d3557;
+    --bg-nav: #022b49;
+}
+
+body {
+    background-color: var(--bg-primary);
+    background-image: url("./wave.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.body-secondary {
+    background: rgba(29, 53, 87, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.nav-bg {
+    background-color: var(--bg-nav);
+}
+
+.btn-danger {
+    background-color: #d32f2f;
+}
+
+.wave {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}

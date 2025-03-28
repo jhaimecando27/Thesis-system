@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Data Gathering{% endblock %}
+
+{% block main %}
+<div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    <div class="p-5 body-secondary rounded-4">
+        <h1 class="display-6 mb-4">STEP1: Data Gathering</h1>
+        {% if form.file.errors %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{ form.file.errors[0] }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        <form class="d-flex flex-column align-items-center" action="{{ url_for('data_gathering') }}" enctype="multipart/form-data" method="post">
+            {{ form.csrf_token }}
+            <div class="input-group mb-3">
+            {{ form.file(class='form-control') }}
+            </div>
+            {{ form.submit(class='btn btn-primary btn-md px-5 rounded-5') }}
+        </form>
+    </div>
+</div>
+{% endblock %}
